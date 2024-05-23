@@ -3,7 +3,7 @@ import { IBook } from '../../models/shared/book.model';
 
 export const loadBooks = createAction(
   '[Books] Load Books',
-  props<{ aggregateId: string }>
+  props<{ aggregateId: string }>()
 );
 export const loadBooksSuccess = createAction(
   '[Books] Load Books Success',

@@ -14,8 +14,8 @@ export class BooksEffects {
   loadBooks$ = createEffect(() =>
     this.actions$.pipe(
       ofType(BooksActions.loadBooks),
-      mergeMap(({ _p: props }) =>
-        this.getAllBooksService.exec(props.aggregateId).pipe(
+      mergeMap(({ aggregateId }) =>
+        this.getAllBooksService.exec(aggregateId).pipe(
           map((booksResponse) =>
             BooksActions.loadBooksSuccess({ bookList: booksResponse.books })
           ),

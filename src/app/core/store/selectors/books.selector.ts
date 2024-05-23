@@ -1,10 +1,15 @@
 import { createSelector } from '@ngrx/store';
 import { AppState } from '../store';
-import { BooksState } from '../reducers/books.reducer';
+import { IBooksState } from '../reducers/books.reducer';
 
-export const selectBooksState = (state: AppState) => state.books;
+export const selectIBooksState = (state: AppState) => state.books;
 
-export const selectBooks = createSelector(
-  selectBooksState,
-  (state: BooksState) => state.bookList
+export const selectBookList = createSelector(
+  selectIBooksState,
+  (state: IBooksState) => state.bookList
+);
+
+export const selectIsLoading = createSelector(
+  selectIBooksState,
+  (state: IBooksState) => state.loading
 );

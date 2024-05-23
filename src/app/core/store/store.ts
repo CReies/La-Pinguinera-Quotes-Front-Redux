@@ -1,13 +1,13 @@
 import { Action, ActionReducer } from '@ngrx/store';
-import { BooksState, booksReducer } from './reducers/books.reducer';
+import { IBooksState, booksReducer } from './reducers/books.reducer';
 import { BooksEffects } from './effects/books.effects';
 
 export interface AppState {
-  books: BooksState;
+  books: IBooksState;
 }
 
 export interface AppStore {
-  books: ActionReducer<BooksState, Action>;
+  books: ActionReducer<IBooksState, Action>;
 }
 
 export const appStore: AppStore = {
