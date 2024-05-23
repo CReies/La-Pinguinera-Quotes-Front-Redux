@@ -2,6 +2,7 @@ import { environment } from "../../../environments/environment.development";
 
 export const URL_RESOURCES ={
 	quote:{
-		get: `${environment.apiUrl}/secret`
+		get: `${environment.apiUrl}/secret`,
+		create: `${environment.apiUrl}/secret`,
 	}
 }
