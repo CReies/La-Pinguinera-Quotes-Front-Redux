@@ -6,4 +6,5 @@ export interface IGroupCartState {
 
 interface ICart {
   books: IBookForCart[];
+  active: boolean;
 }
