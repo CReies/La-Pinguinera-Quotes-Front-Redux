@@ -1,6 +1,6 @@
 import { createSelector } from '@ngrx/store';
 import { AppState } from '../store';
-import { IBooksState } from '../reducers/books.reducer';
+import { IBooksState } from '../state-interfaces/IBooks.state';
 
 export const selectIBooksState = (state: AppState) => state.books;
 

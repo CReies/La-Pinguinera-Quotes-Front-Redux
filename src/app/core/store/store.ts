@@ -1,6 +1,7 @@
 import { Action, ActionReducer } from '@ngrx/store';
-import { IBooksState, booksReducer } from './reducers/books.reducer';
+import {  booksReducer } from './reducers/books.reducer';
 import { BooksEffects } from './effects/books.effects';
+import { IBooksState } from './state-interfaces/IBooks.state';
 
 export interface AppState {
   books: IBooksState;
