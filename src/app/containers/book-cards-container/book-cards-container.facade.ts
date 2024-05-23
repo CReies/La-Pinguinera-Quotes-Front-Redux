@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable, Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
 import { IBook } from '../../core/models/shared/book.model';
 import * as BooksActions from '../../core/store/actions/books.actions';
+import * as GroupCartActions from '../../core/store/actions/group-cart.actions';
 import {
   selectBookList,
   selectIsLoading,
@@ -29,5 +30,12 @@ export class BookCardsContainerFacade {
     );
   }
 
-  addBook
+  addBook(book: IBook): void {
+    this.store.dispatch(GroupCartActions.addBook({ book }));
+  }
+
+  removeBook(book: IBook): void {
+    console.log('remove');
+    this.store.dispatch(GroupCartActions.removeBook({ bookId: book.id }));
+  }
 }

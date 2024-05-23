@@ -22,6 +22,14 @@ export class BookCardsContainerComponent implements OnInit {
     this.initializeSubscriptions();
   }
 
+  addBook(book): void {
+    this.facade.addBook(book);
+  }
+
+  removeBook(book): void {
+    this.facade.removeBook(book);
+  }
+
   private initializeSubscriptions(): void {
     this.bookList$ = this.facade.bookList$();
     this.isLoading$ = this.facade.isLoading$();
