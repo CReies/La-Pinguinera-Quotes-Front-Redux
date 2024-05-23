@@ -8,5 +8,5 @@ import { RouterOutlet } from '@angular/router';
   template: `<router-outlet />`,
 })
 export class AppComponent {
-  title = 'Angular-Architecture-Template';
+  title = 'La-Pinguinera-Quotes-Front';
 }
