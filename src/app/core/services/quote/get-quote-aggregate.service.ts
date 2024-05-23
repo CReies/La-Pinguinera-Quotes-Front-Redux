@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpService } from '../generals/http.service';
-import { GetQuoteAggregateResponseMapper } from '../../mappers/api/response/get-quote-aggregate-response.mapper';
 import { Observable, map } from 'rxjs';
+import { GetQuoteAggregateResponseMapper } from '../../mappers/api/response/get-quote-aggregate-response.mapper';
 import { IGetQuoteAggregateResponse } from '../../models/api/response/get-quote-aggregate-response.model';
 import { URL_RESOURCES } from '../../resources/url.resources';
+import { HttpService } from '../generals/http.service';
 
 @Injectable({ providedIn: 'root' })
 export class GetQuoteService {
