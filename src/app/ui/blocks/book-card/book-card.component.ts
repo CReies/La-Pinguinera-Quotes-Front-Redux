@@ -10,19 +10,19 @@ import { CurrencyPipe } from '@angular/common';
   styleUrl: './book-card.component.css',
 })
 export class BookCardComponent {
-  addedToCart: boolean = false;
+  addedBook: boolean = false;
 
   @Input() book: IBook;
-  @Output() onAddToCart: EventEmitter<IBook> = new EventEmitter();
-  @Output() onRemoveFromCart: EventEmitter<IBook> = new EventEmitter();
+  @Output() onAddBook: EventEmitter<IBook> = new EventEmitter();
+  @Output() onRemoveBook: EventEmitter<IBook> = new EventEmitter();
 
-  addToCart(): void {
-    this.addedToCart = true;
-    this.onAddToCart.emit();
+  addBook(): void {
+    this.addedBook = true;
+    this.onAddBook.emit(this.book);
   }
 
-  removeFromCart(): void {
-    this.addedToCart = false;
-    this.onRemoveFromCart.emit(this.book);
+  removeBook(): void {
+    this.addedBook = false;
+    this.onRemoveBook.emit(this.book);
   }
 }

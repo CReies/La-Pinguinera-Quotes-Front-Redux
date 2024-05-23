@@ -11,14 +11,15 @@ import { BookCardComponent } from '../book-card/book-card.component';
 })
 export class BookCardsComponent {
   @Input() bookList: IBook[];
-  @Output() onAddToCart: EventEmitter<IBook> = new EventEmitter();
-  @Output() onRemoveFromCart: EventEmitter<IBook> = new EventEmitter();
+  @Output() onAddBook: EventEmitter<IBook> = new EventEmitter();
+  @Output() onRemoveBook: EventEmitter<IBook> = new EventEmitter();
 
-  addToCart(book: IBook): void {
-    this.onAddToCart.emit(book);
+  addBook(book: IBook): void {
+    this.onAddBook.emit(book);
   }
 
-  removeFromCart(book: IBook): void {
-    this.onRemoveFromCart.emit(book);
+  removeBook(book: IBook): void {
+    console.log('object');
+    this.onRemoveBook.emit(book);
   }
 }

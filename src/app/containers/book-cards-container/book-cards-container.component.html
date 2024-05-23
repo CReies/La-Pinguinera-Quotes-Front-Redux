@@ -1,1 +1,1 @@
-<app-book-cards [bookList]="bookList$ | async" />
+<app-book-cards [bookList]="bookList$ | async" (onAddBook)="addBook($event)" (onRemoveBook)="removeBook($event)" />
