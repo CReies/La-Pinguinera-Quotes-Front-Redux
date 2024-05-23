@@ -4,7 +4,6 @@ import { IGetAllBooksRequest } from '../../../../models/api/request/books/get-al
 @Injectable({ providedIn: 'root' })
 export class GetallBooksRequestMapper {
   map(payload: any): IGetAllBooksRequest {
-    // TODO: Map this
-    return payload;
+    return { aggregateId: payload };
   }
 }
