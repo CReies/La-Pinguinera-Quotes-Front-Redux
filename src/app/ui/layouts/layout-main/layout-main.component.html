@@ -1,3 +1,14 @@
-<section class="main">
-  <router-outlet name="form" />
+<section class="layout">
+  <section class="layout__header">
+    <app-header />
+  </section>
+  <section class="layout__main">
+    <router-outlet name="main" />
+  </section>
+  <section class="layout__aside">
+    <router-outlet name="aside" />
+  </section>
+  <section class="layout__footer">
+    <app-footer />
+  </section>
 </section>
