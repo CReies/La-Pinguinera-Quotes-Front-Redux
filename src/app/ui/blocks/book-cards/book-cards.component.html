@@ -1,0 +1,3 @@
+@for (book of bookList; track book.id) {
+<app-book-card [book]="book" (onAddToCart)="addToCart($event)"></app-book-card>
+}
