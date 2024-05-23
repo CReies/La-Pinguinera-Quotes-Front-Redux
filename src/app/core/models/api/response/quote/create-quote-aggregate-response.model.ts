@@ -1,3 +1,3 @@
-export interface IGetQuoteAggregateResponse {
-	aggregateId: string
+export interface ICreateQuoteAggregateResponse {
+  aggregateId: string;
 }

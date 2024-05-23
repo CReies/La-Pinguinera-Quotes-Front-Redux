@@ -1,5 +1,5 @@
-import { IBook } from "../../book.model";
+import { IBook } from '../../../shared/book.model';
 
 export interface IGetAllBooksRequest {
-	books: IBook[]
+  books: IBook[];
 }
