@@ -5,11 +5,6 @@ import { FormComponent } from '../ui/forms/form/form.component';
 
 const routes: Routes = [
   {
-    path: 'auth',
-    loadChildren: () =>
-      import('./auth/auth.module').then((module) => module.AuthModule),
-  },
-  {
     path: 'example',
     component: LayoutMainComponent,
     children: [{ path: '', component: FormComponent, outlet: 'form' }],
