@@ -13,7 +13,8 @@ export const groupCartReducer = createReducer(
   on(GroupCartActions.addBook, addBook),
   on(GroupCartActions.removeBook, removeBook),
   on(GroupCartActions.addOneBook, addOneBook),
-  on(GroupCartActions.removeOneBook, removeOneBook)
+  on(GroupCartActions.removeOneBook, removeOneBook),
+  on(GroupCartActions.changeActiveCart, changeActiveCart)
 );
 
 function addBook(
@@ -89,5 +90,16 @@ function removeOneBook(
   const newCart = { ...cart, books: newBooks };
 
   carts[action.cartIndex] = newCart;
+  return { ...state, carts };
+}
+
+function changeActiveCart(
+  state: IGroupCartState,
+  action: { cartIndex: number }
+): IGroupCartState {
+  const carts = state.carts.map((c, i) => {
+    return { ...c, active: i === action.cartIndex };
+  });
+
   return { ...state, carts };
 }

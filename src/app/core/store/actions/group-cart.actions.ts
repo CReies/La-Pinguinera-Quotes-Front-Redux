@@ -20,3 +20,8 @@ export const removeOneBook = createAction(
   '[GroupCart] Remove One Book',
   props<{ bookId: string; cartIndex: number }>()
 );
+
+export const changeActiveCart = createAction(
+  '[GroupCart] Change Active Cart',
+  props<{ cartIndex: number }>()
+);
