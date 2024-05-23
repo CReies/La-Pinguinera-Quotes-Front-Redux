@@ -3,22 +3,22 @@ import { IBook } from '../../models/shared/book.model';
 
 export const addBook = createAction(
   '[GroupCart] Add Book',
-  props<{ book: IBook; cartIndex: number }>()
+  props<{ book: IBook }>()
 );
 
 export const removeBook = createAction(
   '[GroupCart] Remove Book',
-  props<{ bookId: string; cartIndex: number }>()
+  props<{ bookId: string }>()
 );
 
 export const addOneBook = createAction(
   '[GroupCart] Add One Book',
-  props<{ bookId: string; cartIndex: number }>()
+  props<{ bookId: string }>()
 );
 
 export const removeOneBook = createAction(
   '[GroupCart] Remove One Book',
-  props<{ bookId: string; cartIndex: number }>()
+  props<{ bookId: string }>()
 );
 
 export const changeActiveCart = createAction(
