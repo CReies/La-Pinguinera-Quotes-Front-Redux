@@ -8,4 +8,7 @@ export const URL_RESOURCES = {
   calculateQuote: {
     group: `${environment.apiUrl}/quote/group`,
   },
+  books: {
+    getAll: `${environment.apiUrl}/books`,
+  },
 };

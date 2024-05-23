@@ -3,7 +3,7 @@ import { IGetAllBooksResponse } from '../../../../models/api/response/books/get-
 import { bookTypeDictionary } from '../../../../resources/book-type-dictionary';
 
 @Injectable({ providedIn: 'root' })
-export class CalculateGroupQuoteResponseMapper {
+export class GetallBooksResponseMapper {
   map(payload: any): IGetAllBooksResponse {
     const books = payload.books.map((book: any) => {
       const bookType = bookTypeDictionary[book.type];
@@ -16,8 +16,6 @@ export class CalculateGroupQuoteResponseMapper {
       };
     });
 
-    return {
-      books,
-    };
+    return { books };
   }
 }
