@@ -6,7 +6,7 @@ import { URL_RESOURCES } from '../../../resources/url.resources';
 import { HttpService } from '../../generals/http.service';
 
 @Injectable({ providedIn: 'root' })
-export class GetQuoteService {
+export class CreateQuoteAggregateService {
   constructor(
     private readonly httpService: HttpService,
     private readonly resMapper: CreateQuoteAggregateResponseMapper

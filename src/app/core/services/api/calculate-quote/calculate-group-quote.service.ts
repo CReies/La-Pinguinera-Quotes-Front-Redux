@@ -7,7 +7,7 @@ import { URL_RESOURCES } from '../../../resources/url.resources';
 import { Observable, map } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
-export class CalculateGroupQuote {
+export class CalculateGroupQuoteService {
   constructor(
     private readonly httpService: HttpService,
     private readonly reqMapper: CalculateGroupQuoteRequestMapper,
