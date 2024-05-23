@@ -1,7 +1,17 @@
-export interface AppState {}
+import { Action, ActionReducer } from '@ngrx/store';
+import { BooksState, booksReducer } from './reducers/books.reducer';
+import { BooksEffects } from './effects/books.effects';
 
-export interface AppStore {}
+export interface AppState {
+  books: BooksState;
+}
 
-export const appStore: AppStore = {};
+export interface AppStore {
+  books: ActionReducer<BooksState, Action>;
+}
 
-export const appEffects = [];
+export const appStore: AppStore = {
+  books: booksReducer,
+};
+
+export const appEffects = [BooksEffects];
