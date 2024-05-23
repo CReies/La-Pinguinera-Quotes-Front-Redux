@@ -4,7 +4,8 @@ export interface IGroupCartState {
   carts: ICart[];
 }
 
-interface ICart {
+export interface ICart {
+  id: number
   books: IBookForCart[];
   active: boolean;
 }

@@ -1,0 +1,3 @@
+@for(cart of cartGroups; track cart.id){
+<button (click)="changeActiveCart(cart)">#{{$index}}</button>
+}

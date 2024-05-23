@@ -23,5 +23,5 @@ export const removeOneBook = createAction(
 
 export const changeActiveCart = createAction(
   '[GroupCart] Change Active Cart',
-  props<{ cartIndex: number }>()
+  props<{ cartId: number }>()
 );

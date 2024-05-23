@@ -5,7 +5,12 @@ import { IBookForCart } from '../../models/shared/book-for-cart.model';
 import { IBook } from '../../models/shared/book.model';
 
 export const initialState: IGroupCartState = {
-  carts: [{ active: true, books: [] }],
+  carts: [
+    { id: 0, active: true, books: [] },
+    { id: 1, active: false, books: [] },
+    { id: 2, active: false, books: [] },
+    { id: 3, active: false, books: [] },
+  ],
 };
 
 export const groupCartReducer = createReducer(
@@ -29,8 +34,7 @@ function addBook(
     totalPrice: action.book.price,
   };
   const newCart = { ...cart, books: [...cart.books, book] };
-  const newCarts = carts.map((c) => (c.active ? newCart : c));
-
+  const newCarts = carts.map((c) => (c.id === newCart.id ? newCart : c));
   return { ...state, carts: newCarts };
 }
 
@@ -45,10 +49,7 @@ function removeBook(
     books: cart.books.filter((b) => b.id !== action.bookId),
   };
 
-  const newCarts = carts.map((c) => {
-    if (c.active) return newCart;
-    return c;
-  });
+  const newCarts = carts.map((c) => (c.id === newCart.id ? newCart : c));
   return { ...state, carts: newCarts };
 }
 
@@ -70,10 +71,7 @@ function addOneBook(
   });
   const newCart = { ...cart, books: newBooks };
 
-  const newCarts = carts.map((c) => {
-    if (c.active) return newCart;
-    return c;
-  });
+  const newCarts = carts.map((c) => (c.id === newCart.id ? newCart : c));
   return { ...state, carts: newCarts };
 }
 
@@ -95,20 +93,18 @@ function removeOneBook(
   });
   const newCart = { ...cart, books: newBooks };
 
-  const newCarts = carts.map((c) => {
-    if (c.active) return newCart;
-    return c;
-  });
+  const newCarts = carts.map((c) => (c.id === newCart.id ? newCart : c));
   return { ...state, carts: newCarts };
 }
 
 function changeActiveCart(
   state: IGroupCartState,
-  action: { cartIndex: number }
+  action: { cartId: number }
 ): IGroupCartState {
-  const carts = state.carts.map((c, i) => {
-    return { ...c, active: i === action.cartIndex };
-  });
+  const carts = state.carts.map((c) => ({
+    ...c,
+    active: c.id === action.cartId,
+  }));
 
   return { ...state, carts };
 }
