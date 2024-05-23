@@ -1,6 +1,6 @@
 import { IBookDetails } from '../../../shared/book-details.model';
 
-export interface ICalculateGroupQuoteRequest {
+export interface ICalculateGroupQuoteResponse {
   groups: IGroup[];
   totalFinalPrice: number;
   totalBasePrice: number;
