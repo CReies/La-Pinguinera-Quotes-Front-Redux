@@ -1,1 +1,2 @@
-<app-group-cart [cartGroups]="cartGroups$ | async" (onChangeActiveCart)="changeActiveCart($event)" />
+<app-group-cart [cartGroups]="cartGroups$ | async" [activeCart]="activeCart$ | async"
+  (onChangeActiveCart)="changeActiveCart($event)" />

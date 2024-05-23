@@ -11,5 +11,5 @@ export const selectCarts = createSelector(
 
 export const selectActiveCart = createSelector(
   selectGroupCartState,
-  (state: IGroupCartState) => state.carts.filter((c) => c.active)
+  (state: IGroupCartState) => state.carts.find((c) => c.active)
 );

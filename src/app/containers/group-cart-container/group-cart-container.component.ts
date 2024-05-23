@@ -13,6 +13,7 @@ import { AsyncPipe } from '@angular/common';
 })
 export class GroupCartContainerComponent implements OnInit {
   public cartGroups$: Observable<ICart[]>;
+  public activeCart$: Observable<ICart>;
 
   constructor(private readonly facade: GroupCartContainerFacade) {}
 
@@ -26,5 +27,6 @@ export class GroupCartContainerComponent implements OnInit {
 
   private initializeSubscriptions(): void {
     this.cartGroups$ = this.facade.cartGroups$();
+    this.activeCart$ = this.facade.activeCart$();
   }
 }
