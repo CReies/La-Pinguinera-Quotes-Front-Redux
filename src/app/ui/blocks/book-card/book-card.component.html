@@ -6,9 +6,9 @@
   </section>
   <section class="book-card__actions">
     @if(addedToCart){
-    <button class="book-card__button-remove" (click)="addToCart()">Remove</button>
+    <button class="book-card__button-remove" (click)="removeFromCart()">Remove</button>
     }@else{
-    <button class="book-card__button-add" (click)="removeFromCart()">Add to cart</button>
+    <button class="book-card__button-add" (click)="addToCart()">Add to cart</button>
     }
   </section>
 </article>
