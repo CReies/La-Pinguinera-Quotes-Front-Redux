@@ -5,7 +5,7 @@ import { IBookForCart } from '../../models/shared/book-for-cart.model';
 import { IBook } from '../../models/shared/book.model';
 
 export const initialState: IGroupCartState = {
-  carts: [],
+  carts: [{ active: true, books: [] }],
 };
 
 export const groupCartReducer = createReducer(
@@ -19,42 +19,45 @@ export const groupCartReducer = createReducer(
 
 function addBook(
   state: IGroupCartState,
-  action: { book: IBook; cartIndex: number }
+  action: { book: IBook }
 ): IGroupCartState {
   const carts = [...state.carts];
-  const cart = carts[action.cartIndex];
+  const cart = carts.find((c) => c.active);
   const book: IBookForCart = {
     ...action.book,
     quantity: 1,
     totalPrice: action.book.price,
   };
   const newCart = { ...cart, books: [...cart.books, book] };
+  const newCarts = carts.map((c) => (c.active ? newCart : c));
 
-  carts[action.cartIndex] = newCart;
-  return { ...state, carts };
+  return { ...state, carts: newCarts };
 }
 
 function removeBook(
   state: IGroupCartState,
-  action: { bookId: string; cartIndex: number }
+  action: { bookId: string }
 ): IGroupCartState {
   const carts = [...state.carts];
-  const cart = carts[action.cartIndex];
+  const cart = carts.find((c) => c.active);
   const newCart = {
     ...cart,
     books: cart.books.filter((b) => b.id !== action.bookId),
   };
 
-  carts[action.cartIndex] = newCart;
-  return { ...state, carts };
+  const newCarts = carts.map((c) => {
+    if (c.active) return newCart;
+    return c;
+  });
+  return { ...state, carts: newCarts };
 }
 
 function addOneBook(
   state: IGroupCartState,
-  action: { bookId: string; cartIndex: number }
+  action: { bookId: string }
 ): IGroupCartState {
   const carts = [...state.carts];
-  const cart = carts[action.cartIndex];
+  const cart = carts.find((c) => c.active);
   const newBooks = cart.books.map((b) => {
     if (b.id === action.bookId) {
       return {
@@ -67,16 +70,19 @@ function addOneBook(
   });
   const newCart = { ...cart, books: newBooks };
 
-  carts[action.cartIndex] = newCart;
-  return { ...state, carts };
+  const newCarts = carts.map((c) => {
+    if (c.active) return newCart;
+    return c;
+  });
+  return { ...state, carts: newCarts };
 }
 
 function removeOneBook(
   state: IGroupCartState,
-  action: { bookId: string; cartIndex: number }
+  action: { bookId: string }
 ): IGroupCartState {
   const carts = [...state.carts];
-  const cart = carts[action.cartIndex];
+  const cart = carts.find((c) => c.active);
   const newBooks = cart.books.map((b) => {
     if (b.id === action.bookId) {
       return {
@@ -89,8 +95,11 @@ function removeOneBook(
   });
   const newCart = { ...cart, books: newBooks };
 
-  carts[action.cartIndex] = newCart;
-  return { ...state, carts };
+  const newCarts = carts.map((c) => {
+    if (c.active) return newCart;
+    return c;
+  });
+  return { ...state, carts: newCarts };
 }
 
 function changeActiveCart(
