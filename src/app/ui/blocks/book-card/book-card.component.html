@@ -1,0 +1,14 @@
+<article class="book-card book-card-{{book.type}}">
+  <section class="book-card__content">
+    <h2 class="book-card__title">{{ book.title }}</h2>
+    <p class="book-card__author">{{ book.author }}</p>
+    <p class="book-card__price">{{ book.price | currency }}</p>
+  </section>
+  <section class="book-card__actions">
+    @if(addedToCart){
+    <button class="book-card__button-remove" (click)="addToCart()">Remove</button>
+    }@else{
+    <button class="book-card__button-add" (click)="removeFromCart()">Add to cart</button>
+    }
+  </section>
+</article>
