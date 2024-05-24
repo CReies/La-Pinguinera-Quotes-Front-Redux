@@ -38,6 +38,10 @@ export class GroupCartContainerComponent implements OnInit {
     this.facade.removeCart(cartId);
   }
 
+  calculateQuote(): void {
+    this.facade.calculateQuote();
+  }
+
   ngOnInit(): void {
     this.initializeSubscriptions();
   }

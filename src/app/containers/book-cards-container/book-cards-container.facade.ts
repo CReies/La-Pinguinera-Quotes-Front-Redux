@@ -12,10 +12,15 @@ import { AppState } from '../../core/store/store';
 import { selectActiveCart } from '../../core/store/selectors/group-cart.selector';
 import { IBookForCart } from '../../core/models/shared/book-for-cart.model';
 import { ICart } from '../../core/store/state-interfaces/group-cart.state';
+import { StorageService } from '../../core/services/generals/storage.service';
+import { IQuoteAggregate } from '../../core/models/shared/quote-aggregate.model';
 
 @Injectable({ providedIn: 'root' })
 export class BookCardsContainerFacade {
-  constructor(private readonly store: Store<AppState>) {}
+  constructor(
+    private readonly store: Store<AppState>,
+    private readonly storageService: StorageService
+  ) {}
 
   bookList$(): Observable<IBook[]> {
     return this.store.select(selectBookList);
@@ -30,9 +35,12 @@ export class BookCardsContainerFacade {
   }
 
   loadBooks(): void {
+    const { aggregateId } =
+      this.storageService.get<IQuoteAggregate>('quoteAggregate');
+
     this.store.dispatch(
       BooksActions.loadBooks({
-        aggregateId: 'a4bd74c3-7c2b-4d57-847e-ef314b6824fd',
+        aggregateId,
       })
     );
   }
