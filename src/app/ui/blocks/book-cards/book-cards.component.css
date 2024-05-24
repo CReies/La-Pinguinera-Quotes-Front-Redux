@@ -4,7 +4,7 @@
 }
 
 .main {
-  background-color: var(--color-100);
+  background-color: var(--color-50);
   height: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -16,4 +16,10 @@
 
 .main__card {
   display: flex;
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    margin-inline: 16px;
+  }
 }
