@@ -23,6 +23,7 @@ export class GroupCartComponent implements OnChanges {
   @Input() cartGroups: ICart[];
   @Input() activeCart: ICart;
   @Input() isLoading: boolean;
+  @Input() customerRegisterDate: Date;
 
   @Output() onChangeActiveCart: EventEmitter<ICart> = new EventEmitter();
   @Output() onAddOneBook: EventEmitter<IBookForCart> = new EventEmitter();
@@ -58,6 +59,9 @@ export class GroupCartComponent implements OnChanges {
   }
 
   ngOnChanges() {
-    this.buttonEnabled = this.activeCart.books.length > 0;
+    const activeCartNotEmpty = this.activeCart.books.length > 0;
+    const customerRegisterDateNotEmpty = this.customerRegisterDate !== null;
+
+    this.buttonEnabled = activeCartNotEmpty && customerRegisterDateNotEmpty;
   }
 }
