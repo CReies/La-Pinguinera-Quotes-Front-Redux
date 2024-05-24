@@ -11,6 +11,7 @@ export const initialState: ICalculateGroupQuoteState = {
     totalFinalPrice: 0,
     totalIncrease: 0,
   },
+  customerRegisterDate: null,
   loading: false,
   error: '',
 };
@@ -24,6 +25,10 @@ export const calculateGroupQuoteReducer = createReducer(
   on(
     CalculateGroupQuoteActions.calculateGroupQuoteResultSuccess,
     calculateGroupQuoteResultSuccess
+  ),
+  on(
+    CalculateGroupQuoteActions.changeCustomerRegisterDate,
+    changeCustomerRegisterDate
   )
 );
 
@@ -43,4 +48,11 @@ function calculateGroupQuoteResultFailure(
   action: string
 ) {
   return { ...state, error: action, loading: false };
+}
+
+function changeCustomerRegisterDate(
+  state: ICalculateGroupQuoteState,
+  action: { customerRegisterDate: Date }
+) {
+  return { ...state, customerRegisterDate: action.customerRegisterDate };
 }
