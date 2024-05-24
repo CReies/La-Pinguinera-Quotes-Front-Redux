@@ -11,5 +11,12 @@ import { AnchorComponent } from '../../elements/anchor/anchor.component';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
+  @Output() onCustomerRegisterDateChange = new EventEmitter<Date>();
 
+  now = new Date();
+
+  changeCustomerRegisterDate(event: any) {
+    console.log(event);
+    this.onCustomerRegisterDateChange.emit(event.target.value);
+  }
 }
