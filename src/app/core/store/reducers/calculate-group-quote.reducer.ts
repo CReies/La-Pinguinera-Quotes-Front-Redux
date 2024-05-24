@@ -24,8 +24,7 @@ export const calculateGroupQuoteReducer = createReducer(
   on(
     CalculateGroupQuoteActions.calculateGroupQuoteResultSuccess,
     calculateGroupQuoteResultSuccess
-  ),
-
+  )
 );
 
 function calculateGroupQuoteResult(state: ICalculateGroupQuoteState) {
