@@ -8,55 +8,14 @@
     <main class="modal__main">
       <ul class="modal-content__quotes">
         @for (groupResult of quoteResult.groups; track $index) {
-        <li>
-          <table class="modal__result" border>
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Price</th>
-                <th>Discount</th>
-                <th>Increase</th>
-                <th>Final Price</th>
-              </tr>
-            </thead>
-            @for (book of groupResult.books; track $index) {
-            <tr>
-              <td>{{book.type}}: {{book.title}}</td>
-              <td>{{book.basePrice | currency}}</td>
-              <td>- {{book.discount | currency}}</td>
-              <td>+{{book.increase | currency}}</td>
-              <td>{{book.finalPrice | currency}}</td>
-            </tr>
-            }
-            <tr>
-              <td colspan="5" class="modal__resume">
-                <span>Total Price:</span>{{groupResult.totalBasePrice | currency}}
-              </td>
-            </tr>
-            <tr>
-              <td colspan="5" class="modal__resume">
-                <span>Total Discount:</span>- {{groupResult.totalDiscount | currency}}
-              </td>
-            </tr>
-            <tr>
-              <td colspan="5" class="modal__resume">
-                <span>Total Increase:</span>+ {{groupResult.totalIncrease | currency}}
-              </td>
-            </tr>
-            <tr>
-              <td colspan="5" class="modal__resume">
-                <span>Final Price:</span>{{groupResult.totalPrice | currency}}
-              </td>
-            </tr>
-          </table>
-        </li>
+        <app-group-quote-invoice-modal-group [group]="groupResult" />
         }
         <li class="modal-resume__resume">
           <ul>
-            <li>Total Price: {{quoteResult.totalBasePrice | currency}}</li>
-            <li>Total Discount: - {{quoteResult.totalDiscount | currency}}</li>
-            <li>Total Increase: + {{quoteResult.totalIncrease | currency}}</li>
-            <li>Total Final Price: {{quoteResult.totalFinalPrice | currency}}</li>
+            <li><span>Total Price:</span>{{quoteResult.totalBasePrice | currency}}</li>
+            <li><span>Total Discount:</span> - {{quoteResult.totalDiscount | currency}}</li>
+            <li><span>Total Increase:</span> + {{quoteResult.totalIncrease | currency}}</li>
+            <li><span>Total Final Price:</span> {{quoteResult.totalFinalPrice | currency}}</li>
           </ul>
         </li>
       </ul>
