@@ -1,6 +1,8 @@
 .footer {
-  padding-inline: 16px;
+  padding-block: 16px;
+  padding-inline: 32px;
   height: 100%;
+  background-color: var(--color-50);
 }
 
 .footer__container {
