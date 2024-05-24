@@ -18,6 +18,12 @@
   display: flex;
 }
 
+.main__loading {
+  display: grid;
+  place-content: center;
+  height: 100%;
+}
+
 @media screen and (max-width: 768px) {
   .main {
     margin-inline: 16px;

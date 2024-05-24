@@ -1,6 +1,12 @@
 <main class="main">
+  @if (!isLoading) {
   @for (book of bookList; track book.id) {
   <app-book-card class="main__card" [book]="book" [activeBooks]="activeBooks" (onAddBook)="addBook($event)"
     (onRemoveBook)="removeBook($event)"></app-book-card>
+  }
+  } @else {
+  <section class="main__loading">
+    <app-loading />
+  </section>
   }
 </main>
