@@ -14,3 +14,8 @@ export const selectIsLoading = createSelector(
   selectCalculateGroupQuoteState,
   (state: ICalculateGroupQuoteState) => state.loading
 );
+
+export const selectCustomerRegisterDate = createSelector(
+  selectCalculateGroupQuoteState,
+  (state: ICalculateGroupQuoteState) => state.customerRegisterDate
+);
