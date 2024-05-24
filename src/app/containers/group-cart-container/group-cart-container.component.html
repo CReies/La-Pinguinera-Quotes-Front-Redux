@@ -1,4 +1,4 @@
-<app-group-cart [cartGroups]="cartGroups$ | async" [activeCart]="activeCart$ | async"
+<app-group-cart [cartGroups]="cartGroups$ | async" [activeCart]="activeCart$ | async" [isLoading]="isLoading$ | async"
   (onChangeActiveCart)="changeActiveCart($event)" (onAddOneBook)="addOneBook($event)"
   (onRemoveOneBook)="removeOneBook($event)" (onAddNewCart)="addNewCart()" (onRemoveCart)="removeCart($event)"
   (onCalculateQuote)="calculateQuote()" />

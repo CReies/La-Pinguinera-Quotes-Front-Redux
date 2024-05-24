@@ -15,6 +15,7 @@ import { IBookForCart } from '../../core/models/shared/book-for-cart.model';
 export class GroupCartContainerComponent implements OnInit {
   public cartGroups$: Observable<ICart[]>;
   public activeCart$: Observable<ICart>;
+  public isLoading$: Observable<boolean>;
 
   constructor(private readonly facade: GroupCartContainerFacade) {}
 
@@ -49,5 +50,6 @@ export class GroupCartContainerComponent implements OnInit {
   private initializeSubscriptions(): void {
     this.cartGroups$ = this.facade.cartGroups$();
     this.activeCart$ = this.facade.activeCart$();
+    this.isLoading$ = this.facade.isLoading$();
   }
 }

@@ -12,6 +12,7 @@ import * as CalculateGroupQuoteActions from '../../core/store/actions/calculate-
 import * as ModalActions from '../../core/store/actions/modal.actions';
 import { IBookForCart } from '../../core/models/shared/book-for-cart.model';
 import { CalculateGroupQuoteService } from '../../core/services/api/calculate-quote/calculate-group-quote.service';
+import { selectIsLoading } from '../../core/store/selectors/calculate-group-quote.selector';
 
 @Injectable({ providedIn: 'root' })
 export class GroupCartContainerFacade {
@@ -26,6 +27,10 @@ export class GroupCartContainerFacade {
 
   activeCart$(): Observable<ICart> {
     return this.store.select(selectActiveCart);
+  }
+
+  isLoading$(): Observable<boolean> {
+    return this.store.select(selectIsLoading);
   }
 
   changeActiveCart(cart: ICart): void {
@@ -49,6 +54,7 @@ export class GroupCartContainerFacade {
   }
 
   calculateQuote(): void {
+    this.store.dispatch(CalculateGroupQuoteActions.calculateGroupQuoteResult());
     this.store
       .select(selectCarts)
       .subscribe((data) => {
@@ -56,8 +62,10 @@ export class GroupCartContainerFacade {
           this.store.dispatch(
             CalculateGroupQuoteActions.calculateGroupQuoteResultSuccess(res)
           );
-          
-          this.store.dispatch(ModalActions.setGroupQuoteModalVisibility({ visible: true }));
+
+          this.store.dispatch(
+            ModalActions.setGroupQuoteModalVisibility({ visible: true })
+          );
         });
       })
       .unsubscribe();
