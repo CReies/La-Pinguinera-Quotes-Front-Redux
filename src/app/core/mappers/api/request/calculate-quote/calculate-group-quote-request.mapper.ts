@@ -4,7 +4,20 @@ import { ICalculateGroupQuoteRequest } from '../../../../models/api/request/calc
 @Injectable({ providedIn: 'root' })
 export class CalculateGroupQuoteRequestMapper {
   map(payload: any): ICalculateGroupQuoteRequest {
-    // TODO: Map the payload to the ICalculateGroupQuoteRequest interface
-    return payload;
+    console.log(payload);
+    const bookIdsWithQuantity = payload.data.map((cart) => {
+      return cart.books.map((book) => {
+        return {
+          bookId: book.id,
+          quantity: book.quantity + 1,
+        };
+      });
+    });
+
+    return {
+      AggregateId: payload.aggregateId,
+      Group: bookIdsWithQuantity,
+      CustomerRegisterDate: payload.customerRegisterDate.split('T')[0],
+    };
   }
 }
