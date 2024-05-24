@@ -1,3 +1,11 @@
 @for(cart of cartGroups; track cart.id){
-<button (click)="changeActiveCart(cart)">#{{$index}}</button>
+<div class="cart-teb" (click)="changeActiveCart(cart)">
+  #{{$index}}
+  @if(cart.id === activeCart.id){
+  @if (cartGroups.length !== 1) {
+  <button (click)="removeCart(cart)">x</button>
+  }
+  }
+</div>
 }
+<button (click)="addNewCart()">+</button>

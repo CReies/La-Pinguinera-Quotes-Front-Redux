@@ -25,3 +25,10 @@ export const changeActiveCart = createAction(
   '[GroupCart] Change Active Cart',
   props<{ cartId: number }>()
 );
+
+export const addNewCart = createAction('[GroupCart] Add New Cart');
+
+export const removeCart = createAction(
+  '[GroupCart] Remove Cart',
+  props<{ cartId: number }>()
+);

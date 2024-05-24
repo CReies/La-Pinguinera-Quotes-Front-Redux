@@ -10,9 +10,21 @@ import { ICart } from '../../../core/store/state-interfaces/IGroupCart.state';
 })
 export class CartTabsComponent {
   @Input() cartGroups: ICart[];
+  @Input() activeCart: ICart;
+
   @Output() onChangeActiveCart: EventEmitter<ICart> = new EventEmitter();
+  @Output() onAddNewCart: EventEmitter<void> = new EventEmitter();
+  @Output() onRemoveCart: EventEmitter<number> = new EventEmitter();
 
   changeActiveCart(cart: ICart) {
     this.onChangeActiveCart.emit(cart);
+  }
+
+  addNewCart() {
+    this.onAddNewCart.emit();
+  }
+
+  removeCart(cart: ICart) {
+    this.onRemoveCart.emit(cart.id);
   }
 }

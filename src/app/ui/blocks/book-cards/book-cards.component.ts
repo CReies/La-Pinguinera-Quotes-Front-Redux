@@ -21,8 +21,10 @@ import { IBookForCart } from '../../../core/models/shared/book-for-cart.model';
 export class BookCardsComponent implements OnChanges {
   @Input() bookList: IBook[];
   @Input() activeCart: ICart;
+
   @Output() onAddBook: EventEmitter<IBook> = new EventEmitter();
   @Output() onRemoveBook: EventEmitter<IBook> = new EventEmitter();
+
   activeBooks: IBookForCart[] = [];
 
   addBook(book: IBook): void {
@@ -38,7 +40,6 @@ export class BookCardsComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
     if (!changes['activeCart']) return;
     this.updateActiveBooks(changes['activeCart'].currentValue.books);
   }

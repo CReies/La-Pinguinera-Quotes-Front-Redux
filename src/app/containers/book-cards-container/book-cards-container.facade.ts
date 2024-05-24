@@ -44,4 +44,5 @@ export class BookCardsContainerFacade {
   removeBook(book: IBook): void {
     this.store.dispatch(GroupCartActions.removeBook({ bookId: book.id }));
   }
+
 }

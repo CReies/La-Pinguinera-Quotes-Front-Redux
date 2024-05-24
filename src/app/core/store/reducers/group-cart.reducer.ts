@@ -5,12 +5,7 @@ import { IBookForCart } from '../../models/shared/book-for-cart.model';
 import { IBook } from '../../models/shared/book.model';
 
 export const initialState: IGroupCartState = {
-  carts: [
-    { id: 0, active: true, books: [] },
-    { id: 1, active: false, books: [] },
-    { id: 2, active: false, books: [] },
-    { id: 3, active: false, books: [] },
-  ],
+  carts: [{ id: 0, active: true, books: [] }],
 };
 
 export const groupCartReducer = createReducer(
@@ -19,7 +14,9 @@ export const groupCartReducer = createReducer(
   on(GroupCartActions.removeBook, removeBook),
   on(GroupCartActions.addOneBook, addOneBook),
   on(GroupCartActions.removeOneBook, removeOneBook),
-  on(GroupCartActions.changeActiveCart, changeActiveCart)
+  on(GroupCartActions.changeActiveCart, changeActiveCart),
+  on(GroupCartActions.addNewCart, addNewCart),
+  on(GroupCartActions.removeCart, removeCart)
 );
 
 function addBook(
@@ -107,6 +104,29 @@ function changeActiveCart(
     ...c,
     active: c.id === action.cartId,
   }));
+
+  return { ...state, carts };
+}
+
+function addNewCart(state: IGroupCartState): IGroupCartState {
+  const carts = [...state.carts].map((c) => ({ ...c, active: false }));
+  const newCart = {
+    id: carts.length,
+    active: true,
+    books: [],
+  };
+  return { ...state, carts: [...carts, newCart] };
+}
+
+function removeCart(
+  state: IGroupCartState,
+  action: { cartId: number }
+): IGroupCartState {
+  const carts = state.carts
+    .filter((c) => c.id !== action.cartId)
+    .map((c, i) => {
+      return i === 0 ? { ...c, active: true } : c;
+    });
 
   return { ...state, carts };
 }

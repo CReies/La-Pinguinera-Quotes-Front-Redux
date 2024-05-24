@@ -33,4 +33,12 @@ export class GroupCartContainerFacade {
   removeOneBook(book: IBookForCart): void {
     this.store.dispatch(GroupCartActions.removeOneBook({ bookId: book.id }));
   }
+
+  addNewCart(): void {
+    this.store.dispatch(GroupCartActions.addNewCart());
+  }
+
+  removeCart(cartId: number): void {
+    this.store.dispatch(GroupCartActions.removeCart({ cartId }));
+  }
 }
