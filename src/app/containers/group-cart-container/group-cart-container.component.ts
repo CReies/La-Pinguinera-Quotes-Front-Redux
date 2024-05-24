@@ -16,6 +16,7 @@ export class GroupCartContainerComponent implements OnInit {
   public cartGroups$: Observable<ICart[]>;
   public activeCart$: Observable<ICart>;
   public isLoading$: Observable<boolean>;
+  public customerRegisterDate$: Observable<Date>;
 
   constructor(private readonly facade: GroupCartContainerFacade) {}
 
@@ -51,5 +52,6 @@ export class GroupCartContainerComponent implements OnInit {
     this.cartGroups$ = this.facade.cartGroups$();
     this.activeCart$ = this.facade.activeCart$();
     this.isLoading$ = this.facade.isLoading$();
+    this.customerRegisterDate$ = this.facade.customerRegisterDate$();
   }
 }

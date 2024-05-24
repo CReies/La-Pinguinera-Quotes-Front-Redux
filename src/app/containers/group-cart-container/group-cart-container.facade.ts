@@ -12,7 +12,10 @@ import * as CalculateGroupQuoteActions from '../../core/store/actions/calculate-
 import * as ModalActions from '../../core/store/actions/modal.actions';
 import { IBookForCart } from '../../core/models/shared/book-for-cart.model';
 import { CalculateGroupQuoteService } from '../../core/services/api/calculate-quote/calculate-group-quote.service';
-import { selectIsLoading } from '../../core/store/selectors/calculate-group-quote.selector';
+import {
+  selectCustomerRegisterDate,
+  selectIsLoading,
+} from '../../core/store/selectors/calculate-group-quote.selector';
 
 @Injectable({ providedIn: 'root' })
 export class GroupCartContainerFacade {
@@ -27,6 +30,10 @@ export class GroupCartContainerFacade {
 
   activeCart$(): Observable<ICart> {
     return this.store.select(selectActiveCart);
+  }
+
+  customerRegisterDate$(): Observable<Date> {
+    return this.store.select(selectCustomerRegisterDate);
   }
 
   isLoading$(): Observable<boolean> {
