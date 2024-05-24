@@ -4,6 +4,7 @@ import { LayoutMainComponent } from '../ui/layouts/layout-main/layout-main.compo
 import { GroupCartContainerComponent } from '../containers/group-cart-container/group-cart-container.component';
 import { getQuoteAggregateResolver } from './resolvers/get-quote-aggregate.resolver';
 import { BookCardsContainerComponent } from '../containers/book-cards-container/book-cards-container.component';
+import { GroupQuoteInvoiceModalContainerComponent } from '../containers/group-quote-invoice-modal-container/group-quote-invoice-modal-container.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,7 @@ const routes: Routes = [
     children: [
       { path: '', component: BookCardsContainerComponent, outlet: 'main' },
       { path: '', component: GroupCartContainerComponent, outlet: 'aside' },
+      { path: '', component: GroupQuoteInvoiceModalContainerComponent, outlet: 'modal' },
     ],
     resolve: {
       getQuoteAggregate: getQuoteAggregateResolver,

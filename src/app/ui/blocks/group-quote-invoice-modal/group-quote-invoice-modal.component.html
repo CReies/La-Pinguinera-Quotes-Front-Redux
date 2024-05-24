@@ -1,0 +1,38 @@
+<ul>
+  @for (groupResult of quoteResult.groups; track $index) {
+  <li>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Price</th>
+          <th>Discount</th>
+          <th>Increase</th>
+          <th>Final Price</th>
+        </tr>
+      </thead>
+      @for (book of groupResult.books; track $index) {
+      <tr>
+        <td>{{book.type}}: {{book.title}}</td>
+        <td>{{book.basePrice}}</td>
+        <td>-{{book.discount}}</td>
+        <td>+{{book.increase}}</td>
+        <td>{{book.finalPrice}}</td>
+      </tr>
+      }
+      <tr>
+        <td colspan="5"><span>Total Price:</span>{{groupResult.totalBasePrice | currency}}</td>
+      </tr>
+      <tr>
+        <td colspan="5"><span>Total Discount:</span>-{{groupResult.totalDiscount | currency}}</td>
+      </tr>
+      <tr>
+        <td colspan="5"><span>Total Increase:</span>+{{groupResult.totalIncrease | currency}}</td>
+      </tr>
+      <tr>
+        <td colspan="5"><span>Final Price:</span>-{{groupResult.totalFinalPrice| currency}}</td>
+      </tr>
+    </table>
+  </li>
+  }
+</ul>
