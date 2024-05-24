@@ -1,1 +1,8 @@
-<p>{{book | json}}</p>
+<li>
+  <span class="index">{{index}}</span>
+  <span class="title">{{book.title}}</span>
+  <span class="price">{{book.totalPrice}}</span>
+  <button (click)="addOneBook()">+</button>
+  <span class="quantity">{{book.quantity}}</span>
+  <button (click)="removeOneBook()">-</button>
+</li>
