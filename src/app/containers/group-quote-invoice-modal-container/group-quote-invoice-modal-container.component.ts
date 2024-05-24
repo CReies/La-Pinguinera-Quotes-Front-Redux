@@ -4,6 +4,7 @@ import { ICalculateGroupQuoteResponse } from '../../core/models/api/response/cal
 import { GroupQuoteInvoiceModalContainerFacade } from './group-quote-invoice-modal-container.facade';
 import { GroupQuoteInvoiceModalComponent } from '../../ui/blocks/group-quote-invoice-modal/group-quote-invoice-modal.component';
 import { AsyncPipe } from '@angular/common';
+import { IModalState } from '../../core/store/state-interfaces/modal.state';
 
 @Component({
   selector: 'app-group-quote-invoice-modal-container',
@@ -13,6 +14,7 @@ import { AsyncPipe } from '@angular/common';
 })
 export class GroupQuoteInvoiceModalContainerComponent implements OnInit {
   public quoteResult$: Observable<ICalculateGroupQuoteResponse>;
+  public groupQuoteModal$: Observable<IModalState['groupQuoteModal']>;
 
   constructor(private readonly facade: GroupQuoteInvoiceModalContainerFacade) {}
 
@@ -22,5 +24,10 @@ export class GroupQuoteInvoiceModalContainerComponent implements OnInit {
 
   private initializeSubscriptions(): void {
     this.quoteResult$ = this.facade.quoteResult$();
+    this.groupQuoteModal$ = this.facade.groupQuoteModal$();
+  }
+
+  close(): void {
+    this.facade.closeGroupQuoteModal();
   }
 }
