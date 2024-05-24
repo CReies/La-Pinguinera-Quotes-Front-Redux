@@ -14,3 +14,8 @@ export const calculateGroupQuoteResultFailure = createAction(
   '[CalculateGroupQuote] Calculate Group Quote Result',
   props<{ error: string }>()
 );
+
+export const changeCustomerRegisterDate = createAction(
+  '[CalculateGroupQuote] Change Customer Register Date',
+  props<{ customerRegisterDate: Date }>()
+);
