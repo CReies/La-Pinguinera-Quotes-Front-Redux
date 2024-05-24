@@ -20,6 +20,7 @@ export class GroupCartComponent {
   @Output() onRemoveOneBook: EventEmitter<IBookForCart> = new EventEmitter();
   @Output() onAddNewCart: EventEmitter<void> = new EventEmitter();
   @Output() onRemoveCart: EventEmitter<number> = new EventEmitter();
+  @Output() onCalculateQuote: EventEmitter<void> = new EventEmitter();
 
   changeActiveCart(cart: ICart) {
     this.onChangeActiveCart.emit(cart);
@@ -39,5 +40,9 @@ export class GroupCartComponent {
 
   removeCart(cartId: number) {
     this.onRemoveCart.emit(cartId);
+  }
+
+  calculateQuote() {
+    this.onCalculateQuote.emit();
   }
 }

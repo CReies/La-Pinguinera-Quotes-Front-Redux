@@ -2,3 +2,4 @@
   (onAddNewCart)="addNewCart()" (onRemoveCart)="removeCart($event)" />
 <app-cart-details [books]="activeCart.books" (onAddOneBook)="addOneBook($event)"
   (onRemoveOneBook)="removeOneBook($event)" />
+<button (click)="calculateQuote()">Quote</button>
