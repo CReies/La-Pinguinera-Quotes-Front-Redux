@@ -13,7 +13,11 @@ const routes: Routes = [
     children: [
       { path: '', component: BookCardsContainerComponent, outlet: 'main' },
       { path: '', component: GroupCartContainerComponent, outlet: 'aside' },
-      { path: '', component: GroupQuoteInvoiceModalContainerComponent, outlet: 'modal' },
+      {
+        path: '',
+        component: GroupQuoteInvoiceModalContainerComponent,
+        outlet: 'modal',
+      },
     ],
     resolve: {
       getQuoteAggregate: getQuoteAggregateResolver,
