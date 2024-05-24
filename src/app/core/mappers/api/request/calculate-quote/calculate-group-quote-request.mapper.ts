@@ -17,7 +17,7 @@ export class CalculateGroupQuoteRequestMapper {
     return {
       AggregateId: payload.aggregateId,
       Group: bookIdsWithQuantity,
-      CustomerRegisterDate: payload.customerRegisterDate.split('T')[0],
+      CustomerRegisterDate: payload.customerRegisterDate,
     };
   }
 }
