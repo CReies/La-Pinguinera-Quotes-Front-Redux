@@ -1,6 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import * as BooksActions from '../actions/books.actions';
-import { IBooksState } from '../state-interfaces/IBooks.state';
+import { IBooksState } from '../state-interfaces/books.state';
+import { IBook } from '../../models/shared/book.model';
 
 export const initialState: IBooksState = {
   bookList: [],
@@ -10,9 +11,14 @@ export const initialState: IBooksState = {
 
 export const booksReducer = createReducer(
   initialState,
-  on(BooksActions.loadBooks, (state) => ({ ...state, loading: true })),
-  on(BooksActions.loadBooksSuccess, (state, action) => ({
-    ...state,
-    bookList: action.bookList,
-  }))
+  on(BooksActions.loadBooks, loadBooks),
+  on(BooksActions.loadBooksSuccess, loadBooksSuccess)
 );
+
+function loadBooks(state: IBooksState) {
+  return { ...state, loading: true };
+}
+
+function loadBooksSuccess(state: IBooksState, action: { bookList: IBook[] }) {
+  return { ...state, bookList: action.bookList };
+}
