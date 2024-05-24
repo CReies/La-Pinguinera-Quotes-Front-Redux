@@ -1,7 +1,7 @@
 <aside class="group-cart">
   <app-cart-tabs [cartGroups]="cartGroups" [activeCart]="activeCart" (onChangeActiveCart)=" changeActiveCart($event)"
-  (onAddNewCart)="addNewCart()" (onRemoveCart)="removeCart($event)" />
+    (onAddNewCart)="addNewCart()" (onRemoveCart)="removeCart($event)" />
   <app-cart-details [books]="activeCart.books" (onAddOneBook)="addOneBook($event)"
-  (onRemoveOneBook)="removeOneBook($event)" />
-<button (click)="calculateQuote()">Quote</button>
+    (onRemoveOneBook)="removeOneBook($event)" />
+  <button class="group-cart__calculate" (click)="calculateQuote()" [disabled]="!buttonEnabled">Quote</button>
 </aside>

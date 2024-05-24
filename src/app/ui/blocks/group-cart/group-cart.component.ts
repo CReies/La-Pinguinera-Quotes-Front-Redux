@@ -1,4 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  OnChanges,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { ICart } from '../../../core/store/state-interfaces/group-cart.state';
 import { CartTabsComponent } from '../cart-tabs/cart-tabs.component';
 import { CartDetailsComponent } from '../cart-details/cart-details.component';
@@ -11,7 +18,7 @@ import { IBookForCart } from '../../../core/models/shared/book-for-cart.model';
   templateUrl: './group-cart.component.html',
   styleUrl: './group-cart.component.css',
 })
-export class GroupCartComponent {
+export class GroupCartComponent implements OnChanges {
   @Input() cartGroups: ICart[];
   @Input() activeCart: ICart;
 
@@ -21,6 +28,8 @@ export class GroupCartComponent {
   @Output() onAddNewCart: EventEmitter<void> = new EventEmitter();
   @Output() onRemoveCart: EventEmitter<number> = new EventEmitter();
   @Output() onCalculateQuote: EventEmitter<void> = new EventEmitter();
+
+  buttonEnabled: boolean = false;
 
   changeActiveCart(cart: ICart) {
     this.onChangeActiveCart.emit(cart);
@@ -44,5 +53,9 @@ export class GroupCartComponent {
 
   calculateQuote() {
     this.onCalculateQuote.emit();
+  }
+
+  ngOnChanges() {
+    this.buttonEnabled = this.activeCart.books.length > 0;
   }
 }

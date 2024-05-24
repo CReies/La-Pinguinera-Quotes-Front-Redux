@@ -3,3 +3,49 @@
   height: 100%;
   padding: 32px;
 }
+
+.group-cart__calculate {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: var(--color-50);
+  font-size: 1.2em;
+  cursor: pointer;
+
+  background: var(--color-600);
+  background: linear-gradient(var(--color-500) 0%, var(--color-600) 100%);
+  background: -moz-linear-gradient(var(--color-500) 0%, var(--color-600) 100%);
+  background: -webkit-linear-gradient(
+    var(--color-500) 0%,
+    var(--color-600) 100%
+  );
+  transition: 0.15s ease-in-out;
+}
+
+.group-cart__calculate:hover {
+  color: white;
+  background: var(--color-700);
+  background: linear-gradient(var(--color-600) 0%, var(--color-700) 100%);
+  background: -moz-linear-gradient(var(--color-600) 0%, var(--color-700) 100%);
+  background: -webkit-linear-gradient(
+    var(--color-600) 0%,
+    var(--color-700) 100%
+  );
+}
+
+.group-cart__calculate:active {
+  background: var(--color-800);
+  background: linear-gradient(var(--color-700) 0%, var(--color-800) 100%);
+  background: -moz-linear-gradient(var(--color-700) 0%, var(--color-800) 100%);
+  background: -webkit-linear-gradient(
+    var(--color-700) 0%,
+    var(--color-800) 100%
+  );
+}
+
+.group-cart__calculate:disabled {
+  cursor: not-allowed;
+  color: var(--color-100);
+  background: var(--color-800);
+}
