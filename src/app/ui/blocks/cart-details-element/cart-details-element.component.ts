@@ -1,11 +1,12 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
 import { IBookForCart } from '../../../core/models/shared/book-for-cart.model';
+import { SvgComponent } from '../../elements/svg/svg.component';
 
 @Component({
   selector: 'app-cart-details-element',
   standalone: true,
-  imports: [CurrencyPipe],
+  imports: [CurrencyPipe, SvgComponent],
   templateUrl: './cart-details-element.component.html',
   styleUrl: './cart-details-element.component.css',
 })

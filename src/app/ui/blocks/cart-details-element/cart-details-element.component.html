@@ -5,8 +5,8 @@
     <span class="book-details__main-price">{{book.totalPrice | currency}}</span>
   </div>
   <div class="book-details__quantity">
-    <button class="book-details__quantity-button" (click)="addOneBook()">+</button>
+    <button class="book-details__quantity-button" (click)="addOneBook()"><app-svg icon="Plus" /></button>
     <span class="quantity">{{book.quantity}}</span>
-    <button class="book-details__quantity-button" (click)="removeOneBook()">-</button>
+    <button class="book-details__quantity-button" (click)="removeOneBook()"><app-svg icon="Minus" /></button>
   </div>
 </li>
