@@ -6,6 +6,10 @@
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+html {
+  height: 100vh;
+}
+
 :root {
   --color-50: #f1fcf9;
   --color-100: #d0f7f0;
@@ -40,4 +44,9 @@
   background-color: var(--color-900);
   border-radius: 30px;
   border: 3px solid var(--color-50);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
 }
