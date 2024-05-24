@@ -1,11 +1,10 @@
 .layout {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
 
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 3fr 2fr;
   grid-template-rows: auto 1fr auto;
-  gap: 8px;
   grid-template-areas: "header header" "main aside" "footer aside";
 }
 
@@ -15,10 +14,12 @@
 
 .layout__main {
   grid-area: main;
+  overflow-x: auto;
 }
 
 .layout__aside {
   grid-area: aside;
+  overflow-x: auto;
 }
 
 .layout__footer {
@@ -30,6 +31,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: auto auto 1fr auto;
     grid-template-areas: "header" "aside" "main" "footer";
+    height: unset;
   }
 
   .layout__aside {
