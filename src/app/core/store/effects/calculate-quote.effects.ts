@@ -11,8 +11,8 @@ export class CalculateQuoteEffects {
     private readonly calculateGroupQuoteService: CalculateGroupQuoteService
   ) {}
 
-  groupQuoteResult$ = createEffect(() =>
-    this.actions$.pipe(
+  groupQuoteResult$ = createEffect(() => {
+    return this.actions$.pipe(
       ofType(CalculateGroupQuoteActions.calculateGroupQuoteResult),
       mergeMap((data) =>
         this.calculateGroupQuoteService.exec(data).pipe(
@@ -28,6 +28,6 @@ export class CalculateQuoteEffects {
           )
         )
       )
-    )
-  );
+    );
+  });
 }
