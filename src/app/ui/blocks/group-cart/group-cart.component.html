@@ -3,5 +3,12 @@
     (onAddNewCart)="addNewCart()" (onRemoveCart)="removeCart($event)" />
   <app-cart-details [books]="activeCart.books" (onAddOneBook)="addOneBook($event)"
     (onRemoveOneBook)="removeOneBook($event)" />
-  <button class="group-cart__calculate" (click)="calculateQuote()" [disabled]="!buttonEnabled">Quote</button>
+  <button class="group-cart__calculate" (click)="calculateQuote()" [disabled]="!buttonEnabled">
+    Quote
+    @if (isLoading) {
+    <span class="group-cart__loading">
+      <app-loading-min />
+    </span>
+    }
+  </button>
 </aside>

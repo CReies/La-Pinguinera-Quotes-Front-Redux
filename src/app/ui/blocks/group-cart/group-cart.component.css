@@ -49,3 +49,9 @@
   color: var(--color-100);
   background: var(--color-800);
 }
+
+.group-cart__loading {
+  margin-inline: 8px;
+  height: 1rem;
+  width: 1rem;
+}

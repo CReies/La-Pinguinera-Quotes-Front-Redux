@@ -10,17 +10,19 @@ import { ICart } from '../../../core/store/state-interfaces/group-cart.state';
 import { CartTabsComponent } from '../cart-tabs/cart-tabs.component';
 import { CartDetailsComponent } from '../cart-details/cart-details.component';
 import { IBookForCart } from '../../../core/models/shared/book-for-cart.model';
+import { LoadingMinComponent } from '../../elements/loading-min/loading-min.component';
 
 @Component({
   selector: 'app-group-cart',
   standalone: true,
-  imports: [CartTabsComponent, CartDetailsComponent],
+  imports: [CartTabsComponent, CartDetailsComponent, LoadingMinComponent],
   templateUrl: './group-cart.component.html',
   styleUrl: './group-cart.component.css',
 })
 export class GroupCartComponent implements OnChanges {
   @Input() cartGroups: ICart[];
   @Input() activeCart: ICart;
+  @Input() isLoading: boolean;
 
   @Output() onChangeActiveCart: EventEmitter<ICart> = new EventEmitter();
   @Output() onAddOneBook: EventEmitter<IBookForCart> = new EventEmitter();
