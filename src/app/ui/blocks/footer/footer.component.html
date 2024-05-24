@@ -1,1 +1,14 @@
-<p>footer works!</p>
+<footer class="footer">
+	<section class="footer__container">
+		<span class="footer__text">
+			© 2024 Cristian Reyes
+		</span>
+		<section>
+			<ul class="footer__social-media">
+				@for (socialLink of socialLinks; track $index) {
+				<app-social-link [socialLink]="socialLink" />
+				}
+			</ul>
+		</section>
+	</section>
+</footer>
