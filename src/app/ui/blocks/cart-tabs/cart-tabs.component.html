@@ -7,12 +7,12 @@
         #{{$index}}
         @if(cart.id === activeCart.id){
         @if (cartGroups.length !== 1) {
-        <button (click)="removeCart(cart)"><app-svg icon="Close" [size]="8" /></button>
+        <button (click)="removeCart(cart)"><app-svg icon="Close" [size]="16" /></button>
         }
         }
       </div>
       }
     </div>
   </div>
-  <button class="cart-tabs-menu__add-cart" (click)="addNewCart()">+</button>
+  <button class="cart-tabs-menu__add-cart" (click)="addNewCart()"><app-svg icon="Plus" /></button>
 </menu>
