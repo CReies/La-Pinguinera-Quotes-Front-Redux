@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AppState } from '../../core/store/store';
 import { Store } from '@ngrx/store';
-import { Observable, map, take, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ICart } from '../../core/store/state-interfaces/group-cart.state';
 import {
   selectActiveCart,
@@ -9,6 +9,7 @@ import {
 } from '../../core/store/selectors/group-cart.selector';
 import * as GroupCartActions from '../../core/store/actions/group-cart.actions';
 import * as CalculateGroupQuoteActions from '../../core/store/actions/calculate-group-quote.actions';
+import * as ModalActions from '../../core/store/actions/modal.actions';
 import { IBookForCart } from '../../core/models/shared/book-for-cart.model';
 import { CalculateGroupQuoteService } from '../../core/services/api/calculate-quote/calculate-group-quote.service';
 
@@ -55,6 +56,8 @@ export class GroupCartContainerFacade {
           this.store.dispatch(
             CalculateGroupQuoteActions.calculateGroupQuoteResultSuccess(res)
           );
+          
+          this.store.dispatch(ModalActions.setGroupQuoteModalVisibility({ visible: true }));
         });
       })
       .unsubscribe();
