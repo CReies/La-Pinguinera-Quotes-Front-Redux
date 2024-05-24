@@ -1,11 +1,18 @@
-@for(cart of cartGroups; track cart.id){
-<div class="cart-teb" (click)="changeActiveCart(cart)">
-  #{{$index}}
-  @if(cart.id === activeCart.id){
-  @if (cartGroups.length !== 1) {
-  <button (click)="removeCart(cart)">x</button>
-  }
-  }
-</div>
-}
-<button (click)="addNewCart()">+</button>
+<menu class="cart-tabs-menu">
+  <div class="cart-tabs-menu__tabs-overflow">
+    <div class="cart-tabs-menu__tabs">
+      @for(cart of cartGroups; track cart.id){
+      <div class="cart-tabs-menu__tab {{activeCart.id === cart.id ? 'cart-tabs-menu__tab--active' : ''}}"
+        (click)="changeActiveCart(cart)">
+        #{{$index}}
+        @if(cart.id === activeCart.id){
+        @if (cartGroups.length !== 1) {
+        <button (click)="removeCart(cart)"><app-svg icon="Close" [size]="8" /></button>
+        }
+        }
+      </div>
+      }
+    </div>
+  </div>
+  <button class="cart-tabs-menu__add-cart" (click)="addNewCart()">+</button>
+</menu>

@@ -1,10 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ICart } from '../../../core/store/state-interfaces/group-cart.state';
+import { SvgComponent } from '../../elements/svg/svg.component';
 
 @Component({
   selector: 'app-cart-tabs',
   standalone: true,
-  imports: [],
+  imports: [SvgComponent],
   templateUrl: './cart-tabs.component.html',
   styleUrl: './cart-tabs.component.css',
 })
