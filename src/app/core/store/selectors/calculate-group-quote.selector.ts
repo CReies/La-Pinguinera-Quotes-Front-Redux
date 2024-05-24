@@ -9,3 +9,8 @@ export const selectQuoteResult = createSelector(
   selectCalculateGroupQuoteState,
   (state: ICalculateGroupQuoteState) => state.quoteResult
 );
+
+export const selectIsLoading = createSelector(
+  selectCalculateGroupQuoteState,
+  (state: ICalculateGroupQuoteState) => state.loading
+);
