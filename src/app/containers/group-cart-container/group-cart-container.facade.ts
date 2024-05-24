@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AppState } from '../../core/store/store';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { ICart } from '../../core/store/state-interfaces/IGroupCart.state';
+import { ICart } from '../../core/store/state-interfaces/group-cart.state';
 import {
   selectActiveCart,
   selectCarts,

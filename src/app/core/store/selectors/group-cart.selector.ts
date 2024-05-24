@@ -1,6 +1,6 @@
 import { createSelector } from '@ngrx/store';
 import { AppState } from '../store';
-import { IGroupCartState } from '../state-interfaces/IGroupCart.state';
+import { IGroupCartState } from '../state-interfaces/group-cart.state';
 
 export const selectGroupCartState = (state: AppState) => state.groupCart;
 

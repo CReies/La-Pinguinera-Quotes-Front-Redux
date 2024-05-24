@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GroupCartComponent } from '../../ui/blocks/group-cart/group-cart.component';
 import { Observable } from 'rxjs';
-import { ICart } from '../../core/store/state-interfaces/IGroupCart.state';
+import { ICart } from '../../core/store/state-interfaces/group-cart.state';
 import { GroupCartContainerFacade } from './group-cart-container.facade';
 import { AsyncPipe } from '@angular/common';
 import { IBookForCart } from '../../core/models/shared/book-for-cart.model';

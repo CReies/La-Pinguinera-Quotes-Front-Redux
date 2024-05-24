@@ -1,8 +1,8 @@
 import { Action, ActionReducer } from '@ngrx/store';
 import { booksReducer } from './reducers/books.reducer';
 import { BooksEffects } from './effects/books.effects';
-import { IBooksState } from './state-interfaces/IBooks.state';
-import { IGroupCartState } from './state-interfaces/IGroupCart.state';
+import { IBooksState } from './state-interfaces/books.state';
+import { IGroupCartState } from './state-interfaces/group-cart.state';
 import { groupCartReducer } from './reducers/group-cart.reducer';
 
 export interface AppState {

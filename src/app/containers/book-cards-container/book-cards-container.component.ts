@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { IBook } from '../../core/models/shared/book.model';
 import { BookCardsContainerFacade } from './book-cards-container.facade';
 import { AsyncPipe } from '@angular/common';
-import { ICart } from '../../core/store/state-interfaces/IGroupCart.state';
+import { ICart } from '../../core/store/state-interfaces/group-cart.state';
 
 @Component({
   selector: 'app-book-cards-container',
@@ -31,8 +31,6 @@ export class BookCardsContainerComponent implements OnInit {
   removeBook(book): void {
     this.facade.removeBook(book);
   }
-
-
 
   private initializeSubscriptions(): void {
     this.bookList$ = this.facade.bookList$();

@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { IGroupCartState } from '../state-interfaces/IGroupCart.state';
+import { IGroupCartState } from '../state-interfaces/group-cart.state';
 import * as GroupCartActions from '../actions/group-cart.actions';
 import { IBookForCart } from '../../models/shared/book-for-cart.model';
 import { IBook } from '../../models/shared/book.model';

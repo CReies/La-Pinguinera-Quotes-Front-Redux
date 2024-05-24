@@ -11,7 +11,7 @@ import {
 import { AppState } from '../../core/store/store';
 import { selectActiveCart } from '../../core/store/selectors/group-cart.selector';
 import { IBookForCart } from '../../core/models/shared/book-for-cart.model';
-import { ICart } from '../../core/store/state-interfaces/IGroupCart.state';
+import { ICart } from '../../core/store/state-interfaces/group-cart.state';
 
 @Injectable({ providedIn: 'root' })
 export class BookCardsContainerFacade {
@@ -44,5 +44,4 @@ export class BookCardsContainerFacade {
   removeBook(book: IBook): void {
     this.store.dispatch(GroupCartActions.removeBook({ bookId: book.id }));
   }
-
 }
