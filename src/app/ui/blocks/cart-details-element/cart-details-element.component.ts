@@ -1,11 +1,11 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { JsonPipe } from '@angular/common';
+import { CurrencyPipe } from '@angular/common';
 import { IBookForCart } from '../../../core/models/shared/book-for-cart.model';
 
 @Component({
   selector: 'app-cart-details-element',
   standalone: true,
-  imports: [JsonPipe],
+  imports: [CurrencyPipe],
   templateUrl: './cart-details-element.component.html',
   styleUrl: './cart-details-element.component.css',
 })

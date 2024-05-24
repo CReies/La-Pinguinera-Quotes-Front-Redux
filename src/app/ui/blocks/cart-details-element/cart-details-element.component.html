@@ -1,8 +1,12 @@
-<li>
-  <span class="index">{{index}}</span>
-  <span class="title">{{book.title}}</span>
-  <span class="price">{{book.totalPrice}}</span>
-  <button (click)="addOneBook()">+</button>
-  <span class="quantity">{{book.quantity}}</span>
-  <button (click)="removeOneBook()">-</button>
+<li class="book-details">
+  <div class="book-details__main">
+    <span class="book-details__main-index">#{{index}}</span>
+    <span class="book-details__main-title">{{book.title}}</span>
+    <span class="book-details__main-price">{{book.totalPrice | currency}}</span>
+  </div>
+  <div class="book-details__quantity">
+    <button class="book-details__quantity-button" (click)="addOneBook()">+</button>
+    <span class="quantity">{{book.quantity}}</span>
+    <button class="book-details__quantity-button" (click)="removeOneBook()">-</button>
+  </div>
 </li>

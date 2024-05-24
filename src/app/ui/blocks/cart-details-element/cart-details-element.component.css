@@ -1,0 +1,34 @@
+.book-details {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  border-bottom: 1px solid var(--color-200);
+}
+
+.book-details__main {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  width: 100%;
+  place-content: center;
+}
+.book-details__main-index {
+  padding-inline: 4px;
+}
+
+.book-details__quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding-inline: 10px;
+}
+
+.book-details__quantity-button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  font-size: 1.2em;
+  cursor: pointer;
+
+  background: transparent;
+}
