@@ -10,7 +10,6 @@ import {
 } from '../../core/store/selectors/books.selector';
 import { AppState } from '../../core/store/store';
 import { selectActiveCart } from '../../core/store/selectors/group-cart.selector';
-import { IBookForCart } from '../../core/models/shared/book-for-cart.model';
 import { ICart } from '../../core/store/state-interfaces/group-cart.state';
 import { StorageService } from '../../core/services/generals/storage.service';
 import { IQuoteAggregate } from '../../core/models/shared/quote-aggregate.model';
