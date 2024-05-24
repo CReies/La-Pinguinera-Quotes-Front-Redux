@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { IBook } from '../../../core/models/shared/book.model';
 import { BookCardComponent } from '../book-card/book-card.component';
-import { ICart } from '../../../core/store/state-interfaces/IGroupCart.state';
+import { ICart } from '../../../core/store/state-interfaces/group-cart.state';
 import { IBookForCart } from '../../../core/models/shared/book-for-cart.model';
 
 @Component({

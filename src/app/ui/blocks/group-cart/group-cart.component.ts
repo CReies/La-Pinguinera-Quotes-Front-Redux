@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ICart } from '../../../core/store/state-interfaces/IGroupCart.state';
+import { ICart } from '../../../core/store/state-interfaces/group-cart.state';
 import { CartTabsComponent } from '../cart-tabs/cart-tabs.component';
 import { CartDetailsComponent } from '../cart-details/cart-details.component';
 import { IBookForCart } from '../../../core/models/shared/book-for-cart.model';

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { ICart } from '../../../core/store/state-interfaces/IGroupCart.state';
+import { ICart } from '../../../core/store/state-interfaces/group-cart.state';
 
 @Component({
   selector: 'app-cart-tabs',
