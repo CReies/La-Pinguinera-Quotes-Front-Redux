@@ -2,6 +2,7 @@ import { ICalculateGroupQuoteResponse } from '../../models/api/response/calculat
 
 export interface ICalculateGroupQuoteState {
   quoteResult: ICalculateGroupQuoteResponse;
+  customerRegisterDate?: Date;
   loading: boolean;
   error: string;
 }
