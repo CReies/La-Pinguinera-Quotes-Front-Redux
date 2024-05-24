@@ -20,5 +20,5 @@ function loadBooks(state: IBooksState) {
 }
 
 function loadBooksSuccess(state: IBooksState, action: { bookList: IBook[] }) {
-  return { ...state, bookList: action.bookList };
+  return { ...state, bookList: action.bookList, loading: false };
 }
