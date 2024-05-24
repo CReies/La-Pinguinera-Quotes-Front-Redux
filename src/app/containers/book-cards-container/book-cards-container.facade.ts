@@ -9,6 +9,9 @@ import {
   selectIsLoading,
 } from '../../core/store/selectors/books.selector';
 import { AppState } from '../../core/store/store';
+import { selectActiveCart } from '../../core/store/selectors/group-cart.selector';
+import { IBookForCart } from '../../core/models/shared/book-for-cart.model';
+import { ICart } from '../../core/store/state-interfaces/IGroupCart.state';
 
 @Injectable({ providedIn: 'root' })
 export class BookCardsContainerFacade {
@@ -20,6 +23,10 @@ export class BookCardsContainerFacade {
 
   isLoading$(): Observable<boolean> {
     return this.store.select(selectIsLoading);
+  }
+
+  activeCart$(): Observable<ICart> {
+    return this.store.select(selectActiveCart);
   }
 
   loadBooks(): void {
@@ -35,7 +42,6 @@ export class BookCardsContainerFacade {
   }
 
   removeBook(book: IBook): void {
-    console.log('remove');
     this.store.dispatch(GroupCartActions.removeBook({ bookId: book.id }));
   }
 }

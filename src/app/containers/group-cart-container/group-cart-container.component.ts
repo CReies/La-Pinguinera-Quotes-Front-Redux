@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ICart } from '../../core/store/state-interfaces/IGroupCart.state';
 import { GroupCartContainerFacade } from './group-cart-container.facade';
 import { AsyncPipe } from '@angular/common';
+import { IBookForCart } from '../../core/models/shared/book-for-cart.model';
 
 @Component({
   selector: 'app-group-cart-container',
@@ -19,6 +20,14 @@ export class GroupCartContainerComponent implements OnInit {
 
   changeActiveCart(cart: ICart): void {
     this.facade.changeActiveCart(cart);
+  }
+
+  addOneBook(book: IBookForCart): void {
+    this.facade.addOneBook(book);
+  }
+
+  removeOneBook(book: IBookForCart): void {
+    this.facade.removeOneBook(book);
   }
 
   ngOnInit(): void {

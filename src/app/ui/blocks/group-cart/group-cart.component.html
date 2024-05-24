@@ -1,2 +1,3 @@
 <app-cart-tabs [cartGroups]="cartGroups" (onChangeActiveCart)="changeActiveCart($event)" />
-<app-cart-details [books]="activeCart.books" />
+<app-cart-details [books]="activeCart.books" (onAddOneBook)="addOneBook($event)"
+  (onRemoveOneBook)="removeOneBook($event)" />

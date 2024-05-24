@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { IBook } from '../../core/models/shared/book.model';
 import { BookCardsContainerFacade } from './book-cards-container.facade';
 import { AsyncPipe } from '@angular/common';
+import { ICart } from '../../core/store/state-interfaces/IGroupCart.state';
 
 @Component({
   selector: 'app-book-cards-container',
@@ -14,6 +15,7 @@ import { AsyncPipe } from '@angular/common';
 export class BookCardsContainerComponent implements OnInit {
   public bookList$: Observable<IBook[]>;
   public isLoading$: Observable<boolean>;
+  public activeCart$: Observable<ICart>;
 
   constructor(private readonly facade: BookCardsContainerFacade) {}
 
@@ -33,5 +35,6 @@ export class BookCardsContainerComponent implements OnInit {
   private initializeSubscriptions(): void {
     this.bookList$ = this.facade.bookList$();
     this.isLoading$ = this.facade.isLoading$();
+    this.activeCart$ = this.facade.activeCart$();
   }
 }
