@@ -69,8 +69,8 @@ function addOneBook(
     }
     return b;
   });
-  const newCart = { ...cart, books: newBooks };
 
+  const newCart = { ...cart, books: newBooks };
   const newCarts = carts.map((c) => (c.id === newCart.id ? newCart : c));
   return { ...state, carts: newCarts };
 }
@@ -81,18 +81,20 @@ function removeOneBook(
 ): IGroupCartState {
   const carts = [...state.carts];
   const cart = carts.find((c) => c.active);
-  const newBooks = cart.books.map((b) => {
-    if (b.id === action.bookId) {
-      return {
-        ...b,
-        quantity: b.quantity - 1,
-        totalPrice: b.totalPrice - b.price,
-      };
-    }
-    return b;
-  });
-  const newCart = { ...cart, books: newBooks };
+  const newBooks = cart.books
+    .map((b) => {
+      if (b.id === action.bookId) {
+        return {
+          ...b,
+          quantity: b.quantity - 1,
+          totalPrice: b.totalPrice - b.price,
+        };
+      }
+      return b;
+    })
+    .filter((b) => b.quantity > 0);
 
+  const newCart = { ...cart, books: newBooks };
   const newCarts = carts.map((c) => (c.id === newCart.id ? newCart : c));
   return { ...state, carts: newCarts };
 }
