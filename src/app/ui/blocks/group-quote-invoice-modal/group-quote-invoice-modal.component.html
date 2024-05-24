@@ -22,10 +22,10 @@
             @for (book of groupResult.books; track $index) {
             <tr>
               <td>{{book.type}}: {{book.title}}</td>
-              <td>{{book.basePrice}}</td>
-              <td>-{{book.discount}}</td>
-              <td>+{{book.increase}}</td>
-              <td>{{book.finalPrice}}</td>
+              <td>{{book.basePrice | currency}}</td>
+              <td>- {{book.discount | currency}}</td>
+              <td>+{{book.increase | currency}}</td>
+              <td>{{book.finalPrice | currency}}</td>
             </tr>
             }
             <tr>
