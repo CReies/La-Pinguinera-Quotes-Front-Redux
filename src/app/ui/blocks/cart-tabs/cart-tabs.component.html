@@ -1,0 +1,18 @@
+<menu class="cart-tabs-menu">
+  <div class="cart-tabs-menu__tabs-overflow">
+    <div class="cart-tabs-menu__tabs">
+      @for(cart of cartGroups; track cart.id){
+      <div class="cart-tabs-menu__tab {{activeCart.id === cart.id ? 'cart-tabs-menu__tab--active' : ''}}"
+        (click)="changeActiveCart(cart)">
+        #{{$index}}
+        @if(cart.id === activeCart.id){
+        @if (cartGroups.length !== 1) {
+        <button (click)="removeCart(cart)"><app-svg icon="Close" [size]="16" /></button>
+        }
+        }
+      </div>
+      }
+    </div>
+  </div>
+  <button class="cart-tabs-menu__add-cart" (click)="addNewCart()"><app-svg icon="Plus" /></button>
+</menu>

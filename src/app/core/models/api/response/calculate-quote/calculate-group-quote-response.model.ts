@@ -10,7 +10,7 @@ export interface ICalculateGroupQuoteResponse {
 
 interface IGroup {
   books: IBookDetails[];
-  totalFinalPrice: number;
+  totalPrice: number;
   totalBasePrice: number;
   totalDiscount: number;
   totalIncrease: number;

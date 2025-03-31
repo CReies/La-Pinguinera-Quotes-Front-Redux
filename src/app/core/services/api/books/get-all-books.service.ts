@@ -7,17 +7,18 @@ import { URL_RESOURCES } from '../../../resources/url.resources';
 import { Observable, map } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
-export class GetAllBooks {
+export class GetAllBooksService {
   constructor(
     private readonly httpService: HttpService,
     private readonly reqMapper: GetallBooksRequestMapper,
     private readonly resMapper: GetallBooksResponseMapper
   ) {}
 
-  exec(data): Observable<IGetAllBooksResponse> {
+  exec(data: string): Observable<IGetAllBooksResponse> {
+    const mappedData = this.reqMapper.map(data);
     const url = URL_RESOURCES.books.getAll;
     const result = this.httpService
-      .post<IGetAllBooksResponse>(url, data)
+      .post<IGetAllBooksResponse>(url, mappedData)
       .pipe(map((res) => this.resMapper.map(res)));
 
     return result;

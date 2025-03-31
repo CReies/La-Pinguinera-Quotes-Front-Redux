@@ -1,0 +1,6 @@
+<ul>
+  @for(book of books; track book.id){
+  <app-cart-details-element [book]="book" [index]="$index" (onAddOneBook)="addOneBook($event)"
+    (onRemoveOneBook)="removeOneBook($event)" />
+  }
+</ul>

@@ -1,0 +1,15 @@
+<article class="book-card book-card-{{bookType}}">
+  <section class="book-card__content">
+    <img class="book-card__image" src="/assets/img/{{bookType}}.webp" alt="Generic {{bookType}} image">
+    <h2 class="book-card__title">{{ book.title }}</h2>
+    <p class="book-card__author">{{ book.author }}</p>
+    <p class="book-card__price">{{ book.price | currency }}</p>
+  </section>
+  <section class="book-card__actions">
+    @if(addedBook){
+    <button class="book-card__button" (click)="removeBook()">Remove</button>
+    }@else{
+    <button class="book-card__button" (click)="addBook()">Add to cart</button>
+    }
+  </section>
+</article>

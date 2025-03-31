@@ -6,7 +6,7 @@ import { URL_RESOURCES } from '../../../resources/url.resources';
 import { IGetQuoteAggregateResponse } from '../../../models/api/response/quote/get-quote-aggregate-response.model';
 
 @Injectable({ providedIn: 'root' })
-export class GetQuoteService {
+export class GetQuoteAggregateService {
   constructor(
     private readonly httpService: HttpService,
     private readonly resMapper: GetQuoteAggregateResponseMapper
