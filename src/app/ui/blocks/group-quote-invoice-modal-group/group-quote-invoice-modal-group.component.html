@@ -1,0 +1,36 @@
+<li>
+  <table class="group-details" border>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Discount</th>
+        <th>Increase</th>
+        <th>Final Price</th>
+      </tr>
+    </thead>
+    @for (book of group.books; track $index) {
+    <app-group-quote-invoice-modal-book [book]="book" class="group-details__book" />
+    }
+    <tr>
+      <td colspan="5" class="group-details__resume">
+        <span>Total Price:</span>{{group.totalBasePrice | currency}}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="5" class="group-details__resume">
+        <span>Total Discount:</span>- {{group.totalDiscount | currency}}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="5" class="group-details__resume">
+        <span>Total Increase:</span>+ {{group.totalIncrease | currency}}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="5" class="group-details__resume">
+        <span>Final Price:</span>{{group.totalPrice | currency}}
+      </td>
+    </tr>
+  </table>
+</li>

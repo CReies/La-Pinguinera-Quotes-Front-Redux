@@ -1,0 +1,25 @@
+@if (modal.visible) {
+<dialog class="modal" (click)="close($event)">
+  <div class="modal__content">
+    <header class="modal__header">
+      <app-title title="Result" titleType="h2" />
+      <button (click)="close()"><app-svg icon="Close" [size]="24" /></button>
+    </header>
+    <main class="modal__main">
+      <ul class="modal-content__quotes">
+        @for (groupResult of quoteResult.groups; track $index) {
+        <app-group-quote-invoice-modal-group [group]="groupResult" />
+        }
+        <li class="modal-resume__resume">
+          <ul>
+            <li><span>Total Price:</span>{{quoteResult.totalBasePrice | currency}}</li>
+            <li><span>Total Discount:</span> - {{quoteResult.totalDiscount | currency}}</li>
+            <li><span>Total Increase:</span> + {{quoteResult.totalIncrease | currency}}</li>
+            <li><span>Total Final Price:</span> {{quoteResult.totalFinalPrice | currency}}</li>
+          </ul>
+        </li>
+      </ul>
+    </main>
+  </div>
+</dialog>
+}

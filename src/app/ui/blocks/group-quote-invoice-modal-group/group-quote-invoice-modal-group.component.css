@@ -1,0 +1,19 @@
+.group-details {
+  width: 100%;
+  min-width: 500px;
+  margin-block: 16px;
+}
+
+.group-details thead tr th {
+  background-color: var(--color-100);
+  color: var(--color-800);
+}
+
+.group-details__resume {
+  display: flex;
+  justify-content: space-between;
+}
+
+.group-details__book {
+  display: table-row-group;
+}

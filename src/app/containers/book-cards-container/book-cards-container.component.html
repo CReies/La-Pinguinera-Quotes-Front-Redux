@@ -1,0 +1,2 @@
+<app-book-cards [bookList]="bookList$ | async" [isLoading]="isLoading$ | async" [activeCart]="activeCart$ | async"
+  (onAddBook)="addBook($event)" (onRemoveBook)="removeBook($event)" />
